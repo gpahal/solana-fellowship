@@ -5,7 +5,7 @@ This week's goal was brushing up on Rust concepts and getting started with Solan
 The week started with a talk by [Chase](https://twitter.com/therealchaseeb) who works at Solana in developer relations.
 He talked about the Solana ecosystem, the kind of growth it saw over the last year especially from India and where he
 sees it going from here. A lot to be optimistic and excited about! Do follow him to keep up with the ecosystem and to
-learn how to get started with Solana. Also checkout [SOL dev_](https://soldev.app/) for everything you will need for
+learn how to get started with Solana. Also checkout [SOL dev_](https://soldev.app/) for everything you might need for
 developing on Solana.
 
 We also got to know more about the fellowship, it's structure and goals from [Neil](https://twitter.com/neilshroff) and
@@ -40,5 +40,5 @@ experience to actually use the technologies that you read about and see how such
 
 ---
 
-Overall it was a great week as I got to get my hands dirty. That's what works for me. Looking forward to diving deeper
-into the ecosystem in the coming weeks and most importantly shipping cool stuff!
+Overall it was a great week as I got to get my hands dirty. That's what works best for me. Looking forward to diving
+deeper into the ecosystem in the coming weeks and most importantly shipping cool stuff!
