@@ -1,0 +1,27 @@
+# Build directories
+out/
+build/
+target/
+
+# Editors
+
+## VS Code
+.vscode/
+.history/
+
+## JetBrains
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
+
+# OS
+
+## Linux
+*~
+.Trash-*
+
+## MacOS
+.DS_Store
+._*
