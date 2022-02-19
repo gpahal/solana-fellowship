@@ -1,8 +1,12 @@
 use {
-    template::process_instruction,
+    template_program::{
+        instruction::{CustomInstruction, sample_create},
+        processor::Processor,
+        state::get_seeds_and_key,
+    },
     assert_matches::assert_matches,
     solana_program::{
-        instruction::{AccountMeta, Instruction},
+        native_token::LAMPORTS_PER_SOL,
         pubkey::Pubkey,
     },
     solana_sdk::{signature::Signer, transaction::Transaction},
@@ -13,19 +17,25 @@ use {
 async fn test_transaction() {
     let program_id = Pubkey::new_unique();
     let pt = ProgramTest::new(
-        "program",
+        "template_program",
         program_id,
-        processor!(process_instruction),
+        processor!(Processor::process_instruction),
     );
 
     let (mut banks_client, payer, recent_blockhash) = pt.start().await;
 
+    let (record_account_key, _seeds) =
+        get_seeds_and_key(&program_id, &payer.pubkey());
+
+    let instruction = sample_create(
+        program_id,
+        CustomInstruction::SampleCreate { lamports: LAMPORTS_PER_SOL / 10 },
+        payer.pubkey(),
+        record_account_key,
+        payer.pubkey(),
+    ).unwrap();
     let mut transaction = Transaction::new_with_payer(
-        &[Instruction {
-            program_id,
-            accounts: vec![AccountMeta::new(payer.pubkey(), false)],
-            data: vec![1, 2, 3],
-        }],
+        &[instruction],
         Some(&payer.pubkey()),
     );
     transaction.sign(&[&payer], recent_blockhash);

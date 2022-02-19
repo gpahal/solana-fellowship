@@ -5296,14 +5296,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "template"
+name = "template_program"
 version = "0.1.0"
 dependencies = [
  "assert_matches",
+ "borsh",
+ "num-derive",
+ "num-traits",
  "solana-program",
  "solana-program-test",
  "solana-sdk",
  "solana-validator",
+ "thiserror",
 ]
 
 [[package]]
