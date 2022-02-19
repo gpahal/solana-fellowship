@@ -13,4 +13,4 @@ node src/create_wallet.js
 node src/index.js
 ```
 
-![Airdrop screenshot](./images/airdrop.png "Airdrop screenshot")
+![Airdrop screenshot](images/airdrop.png "Airdrop screenshot")

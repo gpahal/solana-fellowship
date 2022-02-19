@@ -13,4 +13,4 @@ cargo test-bpf
 solana program deploy targets/deploy/crowdfunding.so
 ```
 
-![Deployment screenshot](./images/program_deploy.png "Deployment screenshot")
+![Deployment screenshot](images/program_deploy.png "Deployment screenshot")

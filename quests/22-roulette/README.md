@@ -17,12 +17,12 @@ node src/index.js
 
 ### Winning game
 
-![Winning game screenshot](./images/winning_game.png "Winning game screenshot")
+![Winning game screenshot](images/winning_game.png "Winning game screenshot")
 
 ### Losing game
 
-![Losing game screenshot](./images/losing_game.png "Losing game screenshot")
+![Losing game screenshot](images/losing_game.png "Losing game screenshot")
 
 ### Invalid input game
 
-![Invalid input game screenshot](./images/invalid_input_game.png "Invalid input game screenshot")
+![Invalid input game screenshot](images/invalid_input_game.png "Invalid input game screenshot")

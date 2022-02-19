@@ -13,7 +13,7 @@ use {
 async fn test_transaction() {
     let program_id = Pubkey::new_unique();
     let pt = ProgramTest::new(
-        "template",
+        "program",
         program_id,
         processor!(process_instruction),
     );
