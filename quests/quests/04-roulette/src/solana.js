@@ -49,11 +49,11 @@ const getBalance = async (conn, publicKey) => {
     return await conn.getBalance(new PublicKey(publicKey.toString()));
 };
 
-const airdropSOL = async (conn, keypair) => {
-    console.log(`Airdropping 2 SOL...`)
+const airdropSOL = async (conn, publicKey, amount) => {
+    console.log(`Airdropping ${amount} SOL...`);
     const sig = await conn.requestAirdrop(
-        new PublicKey(keypair.publicKey),
-        2 * LAMPORTS_PER_SOL,
+        new PublicKey(publicKey),
+        amount * LAMPORTS_PER_SOL,
     );
     await conn.confirmTransaction(sig);
 };
@@ -67,12 +67,11 @@ const transferSOL = async (conn, fromKeypair, toPublicKey, sols) => {
         }),
     );
 
-    const sig = await sendAndConfirmTransaction(
+    return await sendAndConfirmTransaction(
         conn,
         tx,
         [fromKeypair],
     );
-    return sig;
 };
 
 module.exports = {

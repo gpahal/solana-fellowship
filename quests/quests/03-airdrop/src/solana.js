@@ -38,15 +38,15 @@ const createConnection = (network) => {
     return new Connection(apiUrl, "confirmed");
 };
 
-const printBalance = async (conn, keypair) => {
-    const balance = await conn.getBalance(keypair.publicKey);
+const printBalance = async (conn, publicKey) => {
+    const balance = await conn.getBalance(new PublicKey(publicKey.toString()));
     console.log(`Balance: ${balance/LAMPORTS_PER_SOL} SOL`);
 };
 
-const airdropSOL = async (conn, keypair) => {
-    console.log(`Airdropping 2 SOL...`)
+const airdropSOL = async (conn, publicKey) => {
+    console.log("Airdropping 2 SOL...");
     const sig = await conn.requestAirdrop(
-        new PublicKey(keypair.publicKey),
+        new PublicKey(publicKey.toString()),
         2 * LAMPORTS_PER_SOL,
     );
     await conn.confirmTransaction(sig);
