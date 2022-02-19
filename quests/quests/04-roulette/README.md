@@ -4,7 +4,7 @@
 
 ```shell
 npm install
-node src/create_wallet.js
+node src/create_wallets.js
 ```
 
 ## Play Roulette game
