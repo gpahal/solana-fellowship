@@ -13,10 +13,10 @@ pub enum CustomInstruction {
     /// Create an empty record.
     ///
     /// Accounts expected by this instruction:
-    ///   0. `[]` System program
-    ///   1. `[writeable, signer]` Funding account (must be a system account)
-    ///   2. `[writeable]` User record to be created (program-derived address)
-    ///   3. `[]` Account owner (written into `CustomHeader::owner`)
+    ///   0. `[writeable, signer]` Funding account (must be a system account)
+    ///   1. `[writeable]` User record to be created (program-derived address)
+    ///   2. `[]` Account owner (written into `CustomHeader::owner`)
+    ///   3. `[]` System program
     SampleCreate {
         /// Number of lamports to fund the record with
         lamports: u64,
@@ -32,10 +32,10 @@ pub fn sample_create(
 ) -> Result<Instruction, ProgramError> {
     let data = instruction_data.try_to_vec()?;
     let accounts = vec![
-        AccountMeta::new_readonly(system_program::id(), false),
         AccountMeta::new(payer_key, true),
         AccountMeta::new(record_account_key, false),
         AccountMeta::new_readonly(record_owner_key, false),
+        AccountMeta::new_readonly(system_program::id(), false),
     ];
 
     Ok(Instruction {
