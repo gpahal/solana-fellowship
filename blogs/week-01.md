@@ -36,7 +36,7 @@ grasp for me. But after reading this post, it started to make sense. Kudos to
 This week was about learning the [programming model](https://docs.solana.com/developing/programming-model/overview),
 [how to deploy to Solana](https://openquest.xyz/quest/deploying-the-program-on-to-solana) and [how to work with
 interfaces to Solana like the spl token cli](https://openquest.xyz/quest/create_crypto_with_solana_cli). It was a fun
-experience to actually use the technologies that you read about and see how such are made and deployed.
+experience to actually use the technologies that you read about and see how they are made and deployed.
 
 ---
 

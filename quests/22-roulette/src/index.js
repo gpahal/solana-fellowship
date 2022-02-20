@@ -90,7 +90,7 @@ const executeGame = async () => {
     );
     console.log(`Signature of payment transaction for playing the game: ${chalk.green(paymentSig)}`);
 
-    if (answers.RANDOM === randomNumber){
+    if (answers.RANDOM === randomNumber) {
         await airdropSOL(conn, TREASURY_KEYPAIR.publicKey, getReturnAmount(answers.SOL, answers.RATIO));
         const prizeSig = await transferSOL(
             conn,
