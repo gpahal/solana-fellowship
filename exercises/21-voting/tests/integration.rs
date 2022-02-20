@@ -57,7 +57,7 @@ async fn test_voting() {
 
     let ctx = pt.start_with_context().await;
     let mut banks_client = ctx.banks_client;
-    let payer = ctx.payer;
+    let chairperson = ctx.payer;
     let recent_blockhash = ctx.last_blockhash;
 
     let mut voters = Vec::with_capacity(10);
@@ -65,12 +65,12 @@ async fn test_voting() {
         voters.push(Keypair::new());
     }
 
-    let ballot_state_key = get_ballot_state_key(&payer.pubkey());
+    let ballot_state_key = get_ballot_state_key(&chairperson.pubkey());
 
     let proposals = vec!["a".to_string(), "b".to_string(), "c".to_string()];
     let ballot_state = Ballot {
         is_initialized: true,
-        chairperson: payer.pubkey(),
+        chairperson: chairperson.pubkey(),
         proposals: proposals
             .iter()
             .map(|name| Proposal { name: name.to_string(), vote_count: 0 })
@@ -81,9 +81,9 @@ async fn test_voting() {
     println!("---------------ID ==== {}--------------", voting::id());
 
     let instruction = system_instruction::create_account_with_seed(
-        &payer.pubkey(),
+        &chairperson.pubkey(),
         &ballot_state_key,
-        &payer.pubkey(),
+        &chairperson.pubkey(),
         BALLOT_SEED,
         LAMPORTS_PER_SOL / 10,
         ballot_state_size as u64,
@@ -91,25 +91,24 @@ async fn test_voting() {
     );
     let mut transaction = Transaction::new_with_payer(
         &[instruction],
-        Some(&payer.pubkey()),
+        Some(&chairperson.pubkey()),
     );
-    transaction.sign(&[&payer], recent_blockhash);
+    transaction.sign(&[&chairperson], recent_blockhash);
     assert_matches!(banks_client.process_transaction(transaction).await, Ok(()));
 
     let instruction = init_ballot(
         program_id,
         VotingInstruction::InitBallot {
-            chairperson: payer.pubkey(),
             proposals,
         },
-        payer.pubkey(),
+        chairperson.pubkey(),
         ballot_state_key,
     ).unwrap();
     let mut transaction = Transaction::new_with_payer(
         &[instruction],
-        Some(&payer.pubkey()),
+        Some(&chairperson.pubkey()),
     );
-    transaction.sign(&[&payer], recent_blockhash);
+    transaction.sign(&[&chairperson], recent_blockhash);
     assert_matches!(banks_client.process_transaction(transaction).await, Ok(()));
 
     let mut voter_state_keys = Vec::with_capacity(10);
@@ -126,15 +125,15 @@ async fn test_voting() {
                 voter: voters[i].pubkey(),
                 voter_bump_seed: voter_bump_seeds[i],
             },
-            payer.pubkey(),
+            chairperson.pubkey(),
             ballot_state_key,
             voter_state_key,
         ).unwrap();
         let mut transaction = Transaction::new_with_payer(
             &[instruction],
-            Some(&payer.pubkey()),
+            Some(&chairperson.pubkey()),
         );
-        transaction.sign(&[&payer], recent_blockhash);
+        transaction.sign(&[&chairperson], recent_blockhash);
         assert_matches!(banks_client.process_transaction(transaction).await, Ok(()));
     }
 
@@ -142,7 +141,7 @@ async fn test_voting() {
         banks_client,
         program_id,
         recent_blockhash,
-        payer,
+        payer: chairperson,
         ballot_state_key,
         voter_state_keys,
     };

@@ -23,7 +23,8 @@ use {
 };
 
 pub const MAX_PROPOSALS: u8 = 32;
-pub const MAX_DELEGATE_CHAIN: usize = 5;
+pub const MAX_PROPOSAL_NAME_LENGTH: usize = 64;
+pub const MAX_DELEGATE_CHAIN: usize = 10;
 
 pub struct Processor {}
 
@@ -39,9 +40,9 @@ impl Processor {
         msg!("Instruction unpacked");
 
         match instruction {
-            VotingInstruction::InitBallot { chairperson, proposals } => {
+            VotingInstruction::InitBallot { proposals } => {
                 msg!("Instruction: InitBallot");
-                Processor::process_init_ballot(program_id, accounts, chairperson, proposals)?;
+                Processor::process_init_ballot(program_id, accounts, proposals)?;
             }
             VotingInstruction::AddVoter { voter, voter_bump_seed } => {
                 msg!("Instruction: AddVoter");
@@ -62,19 +63,20 @@ impl Processor {
     pub fn process_init_ballot(
         program_id: &Pubkey,
         accounts: &[AccountInfo],
-        chairperson: Pubkey,
         proposals: Vec<String>,
     ) -> ProgramResult {
         if proposals.len() == 0 {
             return Err(VotingError::NoProposals.into());
         } else if proposals.len() > MAX_PROPOSALS as usize {
             return Err(VotingError::TooManyProposals.into());
+        } else if proposals.iter().any(|name| name.len() > MAX_PROPOSAL_NAME_LENGTH) {
+            return Err(VotingError::ProposalNameTooLong.into());
         }
 
         let accounts_iter = &mut accounts.iter();
 
-        let payer_account = next_account_info(accounts_iter)?;
-        if !payer_account.is_signer {
+        let chairperson_account = next_account_info(accounts_iter)?;
+        if !chairperson_account.is_signer {
             return Err(ProgramError::MissingRequiredSignature);
         }
 
@@ -83,7 +85,7 @@ impl Processor {
 
         let ballot_state = Ballot {
             is_initialized: true,
-            chairperson,
+            chairperson: *chairperson_account.key,
             proposals: proposals
                 .into_iter()
                 .map(|name| Proposal { name, vote_count: 0 })
@@ -211,7 +213,7 @@ impl Processor {
         let mut ballot_state = Processor::get_initialized_ballot_state(
             program_id, ballot_state_account)?;
         if vote as usize >= ballot_state.proposals.len() {
-            return Err(VotingError::InvalidVote.into());
+            return Err(VotingError::InvalidProposalIndex.into());
         }
 
         let voter_state_account = next_account_info(accounts_iter)?;

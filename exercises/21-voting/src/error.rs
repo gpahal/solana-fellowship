@@ -11,14 +11,16 @@ pub enum VotingError {
     NoProposals,
     #[error("Too many proposals given")]
     TooManyProposals,
+    #[error("Proposal name is too long")]
+    ProposalNameTooLong,
     #[error("Already voted")]
     AlreadyVoted,
     #[error("Delegate chain has a cycle")]
     DelegateChainCycle,
     #[error("Max delegate chain limit exceeded")]
     MaxDelegateChainLimitExceeded,
-    #[error("Invalid vote")]
-    InvalidVote,
+    #[error("Invalid proposal index")]
+    InvalidProposalIndex,
 }
 
 impl From<VotingError> for ProgramError {
@@ -42,11 +44,12 @@ impl PrintProgramError for VotingError {
         match self {
             VotingError::NoProposals => msg!("Error: EmptyProposals"),
             VotingError::TooManyProposals => msg!("Error: TooManyProposals"),
+            VotingError::ProposalNameTooLong => msg!("Error: ProposalNameTooLong"),
             VotingError::AlreadyVoted => msg!("Error: AlreadyVoted"),
             VotingError::DelegateChainCycle => msg!("Error: DelegateChainCycle"),
             VotingError::MaxDelegateChainLimitExceeded =>
                 msg!("Error: MaxDelegateChainLimitExceeded"),
-            VotingError::InvalidVote => msg!("Error: InvalidVote"),
+            VotingError::InvalidProposalIndex => msg!("Error: InvalidProposalIndex"),
         }
     }
 }

@@ -13,10 +13,9 @@ pub enum VotingInstruction {
     /// Initialize a ballot
     ///
     /// Accounts expected by this instruction:
-    ///   0. `[writeable, signer]` Payer account (must be a system account)
+    ///   0. `[writeable, signer]` Chairperson account (must be a system account)
     ///   1. `[writeable]` Ballot state account
     InitBallot {
-        chairperson: Pubkey,
         proposals: Vec<String>,
     },
 
