@@ -43,7 +43,7 @@ impl IsInitialized for CustomHeader {
 
 pub const HASH_PREFIX: &str = "Custom Service";
 
-pub fn get_seeds_and_key(program_id: &Pubkey, owner: &Pubkey) -> (Pubkey, Vec<u8>) {
+pub fn get_account_key_and_seeds(program_id: &Pubkey, owner: &Pubkey) -> (Pubkey, Vec<u8>) {
     let mut seeds_vec: Vec<u8> = hashv(
         &[(HASH_PREFIX.to_owned() + &owner.to_string()).as_bytes()],
     ).to_bytes().to_vec();
@@ -52,5 +52,5 @@ pub fn get_seeds_and_key(program_id: &Pubkey, owner: &Pubkey) -> (Pubkey, Vec<u8
         Pubkey::find_program_address(&seeds_vec.chunks(32).collect::<Vec<&[u8]>>(), program_id);
     seeds_vec.push(bump);
 
-    (record_account_key, Vec::from(seeds_vec))
+    (record_account_key, seeds_vec)
 }

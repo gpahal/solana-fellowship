@@ -2,7 +2,7 @@ use solana_program::native_token::LAMPORTS_PER_SOL;
 use {
     crate::{
         instruction::CustomInstruction,
-        state::{CustomHeader, get_seeds_and_key},
+        state::{CustomHeader, get_account_key_and_seeds},
     },
     borsh::BorshDeserialize,
     solana_program::{
@@ -39,7 +39,7 @@ impl Processor {
         let record_owner = next_account_info(accounts_iter)?;
 
         let (record_account_key, seeds) =
-            get_seeds_and_key(program_id, record_owner.key);
+            get_account_key_and_seeds(program_id, record_owner.key);
 
         if record_account_key != *record_account.key {
             msg!("The given record account is incorrect.");

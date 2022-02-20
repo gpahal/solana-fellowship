@@ -2,7 +2,7 @@ use {
     template_program::{
         instruction::{CustomInstruction, sample_create},
         processor::Processor,
-        state::get_seeds_and_key,
+        state::get_account_key_and_seeds,
     },
     assert_matches::assert_matches,
     solana_program::{
@@ -25,7 +25,7 @@ async fn test_transaction() {
     let (mut banks_client, payer, recent_blockhash) = pt.start().await;
 
     let (record_account_key, _seeds) =
-        get_seeds_and_key(&program_id, &payer.pubkey());
+        get_account_key_and_seeds(&program_id, &payer.pubkey());
 
     let instruction = sample_create(
         program_id,

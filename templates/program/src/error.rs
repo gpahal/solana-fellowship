@@ -11,8 +11,6 @@ pub enum CustomError {
     TooFewLamports,
 }
 
-pub type CustomProgramResult = Result<(), CustomError>;
-
 impl From<CustomError> for ProgramError {
     fn from(e: CustomError) -> Self {
         ProgramError::Custom(e as u32)
