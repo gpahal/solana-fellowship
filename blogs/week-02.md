@@ -34,7 +34,7 @@ It turned out to be more challenging than I expected. I couldn't find a good sta
 rabbit hole and explore the solana program library. I found the
 [`name-service`](https://github.com/solana-labs/solana-program-library/tree/master/name-service) program most helpful.
 It's features were relatively straightforward and the implementation was simple to understand. I created a template for
-myself at [templates/program](../templates/program).
+myself at [templates/program](../programs/templates/program).
 
 I completed the program after a lot of browsing, going through open source Solana and Rust programs. I had no way to
 test it through a UI, so I ended up learning how to write integration tests for Solana. It was satisfying to see the
