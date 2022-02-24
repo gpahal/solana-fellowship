@@ -1,0 +1,24 @@
+[package]
+name = "crowdfunding"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+borsh = "0.9.3"
+borsh-derive = "0.9.3"
+solana-program = "1.9.9"
+solana-validator = { version = "1.9.9", optional = true }
+
+[dev-dependencies]
+assert_matches = "1.5.0"
+solana-program-test = "1.9.9"
+solana-sdk = "1.9.9"
+
+[features]
+no-entrypoint = []
+test-bpf = ["solana-validator"]
+
+[lib]
+crate-type = ["cdylib", "lib"]
