@@ -1,0 +1,15 @@
+{
+  "name": "crowdfunding",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/web3.js": "^1.35.1",
+    "mz": "^2.7.0"
+  }
+}
