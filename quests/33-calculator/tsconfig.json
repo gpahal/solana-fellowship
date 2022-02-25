@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "esModuleInterop": true,
+        "lib": ["esnext"],
+
+        "allowJs": false,
+        "alwaysStrict": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+
+        "types": ["mocha", "chai"],
+        "typeRoots": ["./node_modules/@types"]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
