@@ -1,5 +1,4 @@
 import * as anchor from "@project-serum/anchor";
-import { Program } from "@project-serum/anchor";
 import * as assert from "assert";
 
 import { Calculator } from "../target/types/calculator";
@@ -8,7 +7,7 @@ describe("calculator", () => {
   const provider = anchor.Provider.env();
   anchor.setProvider(provider);
 
-  const program = anchor.workspace.Calculator as Program<Calculator>;
+  const program = anchor.workspace.Calculator as anchor.Program<Calculator>;
   const calculator = anchor.web3.Keypair.generate();
 
   it("Creates a calculator", async () => {

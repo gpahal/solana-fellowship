@@ -1,0 +1,8 @@
+# Builds, cached and dependencies
+.anchor
+target
+node_modules
+
+# OS temp files
+.DS_Store
+**/*.rs.bk
