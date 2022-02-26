@@ -2,7 +2,7 @@
 seeds = false
 
 [programs.localnet]
-bi_directional_payment_channel = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+bi_directional_payment_channel = "EUN556Fzp9qKubYWwjUMhcv9AVjvsLhGdFU5CSKj23z"
 
 [registry]
 url = "https://anchor.projectserum.com"
