@@ -21,9 +21,14 @@ how to use the program and all of its features.
 
 - The program always ensure whenever balances change, treasury has enough SOL
 
-- There is an authority which initiates and funds the channel. This authority has the power to withdraw any excess funds
-  after both the users have withdrawn their shares.
+- There is an authority which initiates the channel and funds the treasury. This authority has the power to withdraw any
+  excess funds after both the users have withdrawn their shares.
 
 - If someone wants to update balances to higher values, the authority must first deposit the required amount in the
   treasury. If authority deposits more amount than necessary or balances are updated to a lower sum values, authority
   can withdraw excess funds anytime.
+
+- In order to update balances, the program requires two instructions - one for each user. Each user need to confirm the
+  new balances and the new nonce, with them being signers to their individual instructions. This approach is similar to
+  the one used by the [`project-serum/multisig`](https://github.com/project-serum/multisig) program, rather than the
+  offline signature scheme used by the Solidity program.
