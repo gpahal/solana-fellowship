@@ -6,6 +6,10 @@ out/
 build/
 target/
 
+# Env files
+.env
+.env.prod*
+
 # Editors
 
 ## VS Code
