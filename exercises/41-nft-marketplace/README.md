@@ -76,8 +76,8 @@ Here's how you can create/evolve them.
 
 ## Notes on implementation
 
-- Right now, the dynamic nature involves updating the metadata by the creator manually.
+- Right now, the dynamic nature involves updating of the metadata by the creator manually.
 
-- Ideally, there we'd have an on-chain program as the update authority of the NFT and that would be responsible for
-  checking the conditions for evolution and/or evolving the NFT automatically based on some conditions like time passed
-  etc.
+- Ideally, there should have an on-chain program as the update authority of the NFT and that program would be
+  responsible for checking the conditions for evolution and/or evolving the NFT automatically based on conditions like
+  time passed etc.

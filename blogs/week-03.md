@@ -1,4 +1,4 @@
-# Week 2: More dApps
+# Week 3: More dApps
 
 This week's goal was to continue creating dApps on Solana - not as simple as last week's.
 
