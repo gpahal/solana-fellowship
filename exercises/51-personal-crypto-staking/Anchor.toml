@@ -2,7 +2,7 @@
 seeds = false
 
 [programs.localnet]
-staking = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+staking = "9RcRcEXKMpNJ5zMaUbTwqKoh2RoehEvd9csQAoBz4MCo"
 
 [registry]
 url = "https://anchor.projectserum.com"

@@ -1,16 +1,16 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{transfer, Mint, Token, TokenAccount, Transfer};
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("9RcRcEXKMpNJ5zMaUbTwqKoh2RoehEvd9csQAoBz4MCo");
 
 pub const ESCROW_ACCOUNT_SEED: &[u8] = b"escrow";
 pub const STAKE_ACCOUNT_SEED: &[u8] = b"stake";
 
-// Reward percent per 5 second =
-//     REWARD_PERCENT_PER_5_SECONDS_SIGNIFICAND * 10 ^ -REWARD_PERCENT_PER_5_SECONDS_DECIMAL
-const REWARD_PERCENT_PER_5_SECONDS_SIGNIFICAND: u128 = 2;
-const REWARD_PERCENT_PER_5_SECONDS_DECIMAL: u32 = 8;
-const REWARD_PERCENT_PER_5_SECONDS_DIVISOR: u128 = 10u128.pow(REWARD_PERCENT_PER_5_SECONDS_DECIMAL);
+// Reward ratio per 5 second =
+//     REWARD_RATIO_PER_5_SECONDS_SIGNIFICAND * 10 ^ -REWARD_RATIO_PER_5_SECONDS_DECIMAL
+const REWARD_RATIO_PER_5_SECONDS_SIGNIFICAND: u128 = 2;
+const REWARD_RATIO_PER_5_SECONDS_DECIMAL: u32 = 8;
+const REWARD_RATIO_PER_5_SECONDS_DIVISOR: u128 = 10u128.pow(REWARD_RATIO_PER_5_SECONDS_DECIMAL);
 
 #[program]
 pub mod staking {
@@ -276,8 +276,8 @@ impl Stake {
 
         let time_elapsed = (now - self.created_at) as u128;
         let reward = (time_elapsed / 5)
-            * (self.amount as u128 * REWARD_PERCENT_PER_5_SECONDS_SIGNIFICAND)
-            / (REWARD_PERCENT_PER_5_SECONDS_DIVISOR);
+            * (self.amount as u128 * REWARD_RATIO_PER_5_SECONDS_SIGNIFICAND)
+            / (REWARD_RATIO_PER_5_SECONDS_DIVISOR);
         if reward > u64::MAX as u128 {
             err!(StakingError::RewardOutOfBounds)
         } else {

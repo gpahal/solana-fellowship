@@ -44,7 +44,7 @@ describe("staking", () => {
         escrowToken,
         tokenProgram: tokenLib.TOKEN_PROGRAM_ID,
         systemProgram: web3.SystemProgram.programId,
-      }
+      },
     });
 
     const escrowAccount = await program.account.escrow.fetch(escrow);
@@ -60,7 +60,7 @@ describe("staking", () => {
         escrowToken,
         payerToken: ownerToken,
         tokenProgram: tokenLib.TOKEN_PROGRAM_ID,
-      }
+      },
     });
 
     const escrowTokenAccount = await fetchTokenAccount(provider, escrowToken);
