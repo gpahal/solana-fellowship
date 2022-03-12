@@ -36,10 +36,10 @@ I bootstrapped with [Metaplex Storefront](https://docs.metaplex.com/storefront/i
 create and evolve Pokemon NFTs. The creator could go to the Pokemon NFT page and click on a button to evolve it. The
 most challenging part was learning about the Metaplex APIs and the Metaplex Storefront UI cache management.
 
-![Evolving dynamic Pokemon NFT](images/evolving_dynamic_nft.png "Evolving dynamic Pokemon NFT")
+![Evolving dynamic Pokemon NFT](images/week-04/evolving_dynamic_nft.png "Evolving dynamic Pokemon NFT")
 *Evolving...*
 
-![Evolved dynamic Pokemon NFT](images/evolved_dynamic_nft.png "Evolved dynamic Pokemon NFT")
+![Evolved dynamic Pokemon NFT](images/week-04/evolved_dynamic_nft.png "Evolved dynamic Pokemon NFT")
 *Evolved!*
 
 This was not the best solution though. Right now, the dynamic nature involves updating of the metadata by the creator
