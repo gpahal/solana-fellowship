@@ -32,7 +32,7 @@ anchor deploy
 
 ```shell
 cd app
-yarn start
+yarn && yarn start
 ```
 
 ## Screenshot
