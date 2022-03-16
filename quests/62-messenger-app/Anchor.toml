@@ -1,0 +1,15 @@
+[features]
+seeds = false
+
+[programs.localnet]
+messenger_app = "4MY6s5rw7Q7fBd7DjdqauGnt7FKu7KnJjHrmExrtke3d"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "/Users/gpahal/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
