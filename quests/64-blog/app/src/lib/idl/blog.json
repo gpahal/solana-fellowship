@@ -1,0 +1,69 @@
+{
+	"version": "0.1.0",
+	"name": "blog",
+	"instructions": [
+		{
+			"name": "initialize",
+			"accounts": [
+				{
+					"name": "blogAccount",
+					"isMut": true,
+					"isSigner": true
+				},
+				{
+					"name": "authority",
+					"isMut": true,
+					"isSigner": true
+				},
+				{
+					"name": "systemProgram",
+					"isMut": false,
+					"isSigner": false
+				}
+			],
+			"args": []
+		},
+		{
+			"name": "makePost",
+			"accounts": [
+				{
+					"name": "blogAccount",
+					"isMut": true,
+					"isSigner": false
+				},
+				{
+					"name": "authority",
+					"isMut": false,
+					"isSigner": true
+				}
+			],
+			"args": [
+				{
+					"name": "newPost",
+					"type": "bytes"
+				}
+			]
+		}
+	],
+	"accounts": [
+		{
+			"name": "BlogAccount",
+			"type": {
+				"kind": "struct",
+				"fields": [
+					{
+						"name": "authority",
+						"type": "publicKey"
+					},
+					{
+						"name": "latestPost",
+						"type": "bytes"
+					}
+				]
+			}
+		}
+	],
+	"metadata": {
+		"address": "HX1Gw4YywFxBFf136BMTMiSEkFPsfqi9MqKcVec5Kh99"
+	}
+}

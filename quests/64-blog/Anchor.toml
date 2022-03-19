@@ -1,0 +1,15 @@
+[features]
+seeds = false
+
+[programs.localnet]
+blog = "HX1Gw4YywFxBFf136BMTMiSEkFPsfqi9MqKcVec5Kh99"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "/Users/gpahal/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
