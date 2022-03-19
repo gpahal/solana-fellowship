@@ -1,0 +1,15 @@
+[features]
+seeds = false
+
+[programs.localnet]
+shared_wallet = "7W4Y4uNcffFFusKuxEbZr22CcjU1819LNK3iyVSqBRhb"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "/Users/gpahal/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
