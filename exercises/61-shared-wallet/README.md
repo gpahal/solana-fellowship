@@ -14,5 +14,5 @@ Creation and transferring of spl tokens for a group of users is shown in the tes
 
 ## Notes on implementation
 
-- The shared wallet only allows transfer of spl tokens for now. It can extended to any transaction in the future similar
-  to multi-sig wallets like Goki.
+- The shared wallet only allows transfer of spl tokens for now. It can be extended to any transaction in the future
+  similar to multi-sig wallets like Goki.
