@@ -34,7 +34,7 @@ incentivize people to not let it happen. I have some ideas on this subject, but 
 ## Naming the project
 
 Probably the most difficult decision of this week. I spent a decent amount of time thinking about it. I finalized on
-**Furo**. I was searching what flow is called in different languages. In Japanese, it's Furō. It sounded nice, short and
+**Fura**. I was searching what flow is called in different languages. In Japanese, it's Furō. It sounded nice, short and
 memorable. So that's what the project will be called.
 
 ## Future considerations
