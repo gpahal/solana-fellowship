@@ -14,8 +14,8 @@ companies. It's something I need to think about in the coming weeks as the proje
 
 This week we did 2 quests -
 [creating and burning NFTs using `@solana/web3.js`](https://openquest.xyz/quest/create-burn-nft-solana) and
-[creating your own NFT minting machine](https://openquest.xyz/quest/create_a_candy_machine_minting_nft_and_minting_website_v2).
-I particularly enjoyed the second one. It allowed me to deploy a nft minting machine quickly, and then I could peek
+[creating your own NFT minting machine](https://openquest.xyz/quest/create_a_candy_machine_minting_nft_and_minting_website_v2)
+. I particularly enjoyed the second one. It allowed me to deploy a nft minting machine quickly, and then I could peek
 inside the code and see what was happening.
 
 I had previous experience creating NFTs on Ethereum. The mental model on Solidity was much simpler. There were a couple
@@ -36,11 +36,9 @@ I bootstrapped with [Metaplex Storefront](https://docs.metaplex.com/storefront/i
 create and evolve Pokemon NFTs. The creator could go to the Pokemon NFT page and click on a button to evolve it. The
 most challenging part was learning about the Metaplex APIs and the Metaplex Storefront UI cache management.
 
-![Evolving dynamic Pokemon NFT](images/week-04/evolving_dynamic_nft.png "Evolving dynamic Pokemon NFT")
-*Evolving...*
+![Evolving Pokemon...](/blog/solana-fellowship/week-04/evolving-dynamic-pokemon-nft.webp)
 
-![Evolved dynamic Pokemon NFT](images/week-04/evolved_dynamic_nft.png "Evolved dynamic Pokemon NFT")
-*Evolved!*
+![Evolved!](/blog/solana-fellowship/week-04/evolved-dynamic-pokemon-nft.webp)
 
 This was not the best solution though. Right now, the dynamic nature involves updating of the metadata by the creator
 manually - clicking a button. Ideally, there should have an on-chain program as the update authority of the NFT and that

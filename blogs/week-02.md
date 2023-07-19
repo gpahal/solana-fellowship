@@ -5,11 +5,11 @@ This week's goal was to start creating mini dApps on Solana. There are 2 parts t
 
 ## Thoughts on web2 vs web3 development
 
-On Monday, [Preethi Kasireddy](https://twitter.com/iam_preethi) gave a talk about how web3 development is different from
-the classical client-server programming model. On one hand, web3 makes it extremely simple to have a global computer
-with persistent storage, but on the other hand, doing iterative development is significantly more difficult. Another
-major difference is the security model and how much auditing is needed before deployment. Because iterative upgrades are
-difficult, most of the auditing and security reviews need to done prior to deployment.
+On Monday, [Preethi Kasireddy](https://twitter.com/iam_preethi) gave a talk about how web3 development is different
+from the classical client-server programming model. On one hand, web3 makes it extremely simple to have a global
+computer with persistent storage, but on the other hand, doing iterative development is significantly more difficult.
+Another major difference is the security model and how much auditing is needed before deployment. Because iterative
+upgrades are difficult, most of the auditing and security reviews need to done prior to deployment.
 
 My experience so far with Solana and Ethereum aligns with that: a lot of the basic concepts are the
 same - you are still writing rust/solidity/js, storing/retrieving data, using a database as a source of truth - but
@@ -48,7 +48,6 @@ green check marks after some challenging work.
 That being said, I'll be using the Anchor framework from now. If anything, not using it showed me how useful it is.
 
 ---
-
 
 The fellowship seems to be moving into top gear, with each week being more challenging than the last one. I enjoyed this
 week's exercise a lot. The only thing lacking was a UI to make it an end-to-end voting system. I'll continue writing

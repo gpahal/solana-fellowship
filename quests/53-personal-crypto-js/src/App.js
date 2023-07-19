@@ -16,6 +16,8 @@ import {
   setAuthority,
 } from "@solana/spl-token";
 
+const ENDPOINT = clusterApiUrl("devnet");
+
 export default function App() {
   const [walletConnected,setWalletConnected] = useState(false);
   const [provider, setProvider] = useState();
@@ -23,7 +25,6 @@ export default function App() {
 
   const [isTokenCreated, setIsTokenCreated] = useState(false);
   const [createdTokenPublicKey, setCreatedTokenPublicKey] = useState(null);
-  const [createdTokenPublicKeyStr, setCreatedTokenPublicKeyStr] = useState(null);
   const [mintingWalletSecretKey, setMintingWalletSecretKey] = useState(null);
   const [supplyCapped, setSupplyCapped] = useState(false);
 
@@ -63,7 +64,7 @@ export default function App() {
     try {
       setLoading(true);
       const connection = new Connection(
-        clusterApiUrl("devnet"),
+        ENDPOINT,
         "confirmed"
       );
       const fromAirDropSignature = await connection.requestAirdrop(new PublicKey(provider.publicKey), LAMPORTS_PER_SOL);
@@ -81,7 +82,7 @@ export default function App() {
     try {
       setLoading(true);
       const connection = new Connection(
-        clusterApiUrl("devnet"),
+        ENDPOINT,
         "confirmed"
       );
 
@@ -110,7 +111,6 @@ export default function App() {
       console.log("SIGNATURE:",signature);
 
       setCreatedTokenPublicKey(creatorToken);
-      setCreatedTokenPublicKeyStr(creatorToken.toString());
       setIsTokenCreated(true);
       setLoading(false);
     } catch(err) {
@@ -123,7 +123,7 @@ export default function App() {
     try {
       setLoading(true);
       const connection = new Connection(
-        clusterApiUrl("devnet"),
+        ENDPOINT,
         "confirmed"
       );
       const createMintingWallet = await Keypair.fromSecretKey(Uint8Array.from(Object.values(JSON.parse(mintingWalletSecretKey))));
@@ -159,7 +159,7 @@ export default function App() {
       setLoading(true);
 
       const connection = new Connection(
-        clusterApiUrl("devnet"),
+        ENDPOINT,
         "confirmed"
       );
 
@@ -202,7 +202,7 @@ export default function App() {
     try {
       setLoading(true);
       const connection = new Connection(
-        clusterApiUrl("devnet"),
+        ENDPOINT,
         "confirmed"
       );
 

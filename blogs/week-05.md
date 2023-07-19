@@ -9,8 +9,8 @@ This week we had a session by [Shreyas](https://twitter.com/HelloShreyas), who's
 journey in web3 and how important it is to have a good name for your product!
 
 I connected a lot with his journey into web3 - he left his job wanting to get into a new industry, took part in
-hackathons to force himself to do something - something I am trying to do. Another interesting thing he talked about was
-how he decided what problems to work on - he used to help people with their DAOs and that's where he came across the
+hackathons to force himself to do something - something I am trying to do. Another interesting thing he talked about
+was how he decided what problems to work on - he used to help people with their DAOs and that's where he came across the
 problem people face managing treasuries. Since then, he has built a product, created a community around it and built up
 conviction in the problem statement.
 
@@ -31,8 +31,7 @@ ecosystem so much more composable and rich.
 The exercise for this week was to add support for staking to the cryptocurrency created in one of the quests. This is
 what I ended up making.
 
-![App screenshot](images/week-05/app.png "App screenshot")
-*Staking program UI*
+![Staking app UI](/blog/solana-fellowship/week-05/staking-app.webp)
 
 I had to think a lot about where to escrow the funds, how to make different escrow accounts for different tokens, and
 to connect it all in the UI providing a good user experience. It was a fun exercise, and I ended up learning a lot.
@@ -41,10 +40,10 @@ Doing this exercise also made me think about token economics (tokenomics for sho
 ways of token distribution, inflation, rewards, etc. I wanted to why different projects choose different mechanics and
 how they implement those.
 
-I read the documentation of [Solana economics](https://docs.solana.com/economics_overview). It is very interesting, well
-written set of articles. I would suggest everyone to go through them if they want to know why people stake and why it's
-good for the blockchain that people distribute their stake to different validators - which is a problem some projects
-are trying to solve.
+I read the documentation of [Solana economics](https://docs.solana.com/economics_overview). It is very interesting,
+well written set of articles. I would suggest everyone to go through them if they want to know why people stake and why
+it's good for the blockchain that people distribute their stake to different validators - which is a problem some
+projects are trying to solve.
 
 ---
 

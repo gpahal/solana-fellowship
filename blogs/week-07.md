@@ -14,7 +14,7 @@ requirements that I decided on:
 - Prepaid and unbounded streams
 - Solvency detection and punishment for senders whose streams become insolvent
 - Cancellation should be configurable - whether sender and recipient can cancel the stream and when they can cancel
-  should be configurable
+should be configurable
 
 ## Components
 
@@ -34,25 +34,25 @@ incentivize people to not let it happen. I have some ideas on this subject, but 
 ## Naming the project
 
 Probably the most difficult decision of this week. I spent a decent amount of time thinking about it. I finalized on
-**Fura**. I was searching what flow is called in different languages. In Japanese, it's Furō. It sounded nice, short and
-memorable. So that's what the project will be called.
+**Fura**. I was searching what flow is called in different languages. In Japanese, it's Furō. It sounded nice, short
+and memorable. So that's what the project will be called.
 
 ## Future considerations
 
-There are many more interesting things that can be done. One example is transitive streams. If Alice is streaming to Bob
-and Bob is streaming to Charles - Charles can be assured that his stream will not go insolvent till Alice is topping up
-the stream. The contract can make sure that, Bob only takes out the net balance from both the streams.
+There are many more interesting things that can be done. One example is transitive streams. If Alice is streaming to
+Bob and Bob is streaming to Charles - Charles can be assured that his stream will not go insolvent till Alice is
+topping up the stream. The contract can make sure that, Bob only takes out the net balance from both the streams.
 
-But implementation of these ideas is pretty complex and out of scope for the project. I'll come back to these ideas once
-the basic things are in place.
+But implementation of these ideas is pretty complex and out of scope for the project. I'll come back to these ideas
+once the basic things are in place.
 
 ## Tech stack
 
 - I implemented major part of the smart contract. It's made using the awesome
-  [Anchor framework](https://book.anchor-lang.com/).
+[Anchor framework](https://book.anchor-lang.com/).
 - I'll be building the insolvency checker and javascript client in Typescript.
 - For the web UI, I'll use [Remix](https://remix.run/) and Typescript. Using Remix is very pleasant, and I recently
-  built my website ([garvitpahal.com](https://garvitpahal.com/)) using it, so I am comfortable with it.
+built my website ([garvitpahal.com](https://garvitpahal.com/)) using it, so I am comfortable with it.
 
 ---
 
